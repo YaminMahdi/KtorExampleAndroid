@@ -61,6 +61,7 @@ ktor = [
     "ktor-client-okhttp",
     "ktor-client-negotiation",
     "ktor-client-serialization",
+    "slf4j-android",
     "ktor-client-logging"
 ]
 compose = [

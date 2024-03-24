@@ -68,14 +68,11 @@ dependencies {
 
     //ktor
     implementation(libs.bundles.ktor)
-    debugImplementation(libs.slf4j.android)
 
     //chucker
     debugImplementation(libs.chucker.library)
     releaseImplementation(libs.chucker.library.no)
 
-    //gson
-    implementation(libs.google.gson)
 
     //Dagger - Hilt
     implementation(libs.hilt.android)
