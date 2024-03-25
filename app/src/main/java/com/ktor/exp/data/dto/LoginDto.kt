@@ -1,72 +1,66 @@
-package com.ktor.exp.dto
+package com.ktor.exp.data.dto
 
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.ktor.exp.domain.model.User
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class LoginDto(
-    @SerialName("data")
-    val `data`: Data? = null,
-    @SerialName("message")
+    @JsonProperty("data")
+    val data: Data = Data(),
+    @JsonProperty("message")
     val message: String = "",
-    @SerialName("status")
+    @JsonProperty("status")
     val status: String = ""
 ) {
-    @Serializable
     data class Data(
-        @SerialName("token")
+        @JsonProperty("token")
         val token: Token = Token(),
-        @SerialName("user_info")
+        @JsonProperty("user_info")
         val userInfo: UserInfo = UserInfo()
     ) {
-        @Serializable
         data class Token(
-            @SerialName("access_token")
+            @JsonProperty("access_token")
             val accessToken: String = "",
-            @SerialName("expires_in")
+            @JsonProperty("expires_in")
             val expiresIn: Int = 0,
-            @SerialName("token_type")
+            @JsonProperty("token_type")
             val tokenType: String = ""
         )
 
-        @Serializable
         data class UserInfo(
-            @SerialName("address")
+            @JsonProperty("address")
             val address: String = "",
-            @SerialName("email")
+            @JsonProperty("email")
             val email: String = "",
-            @SerialName("id")
+            @JsonProperty("id")
             val id: Int = 0,
-            @SerialName("image")
+            @JsonProperty("image")
             val image: String = "",
-            @SerialName("is_active")
+            @JsonProperty("is_active")
             val isActive: Boolean = false,
-            @SerialName("name")
+            @JsonProperty("name")
             val name: String = "",
-            @SerialName("nid")
+            @JsonProperty("nid")
             val nid: String = "",
-            @SerialName("phone")
+            @JsonProperty("phone")
             val phone: String = "",
-            @SerialName("point")
+            @JsonProperty("point")
             val point: Double = 0.0,
-            @SerialName("type")
+            @JsonProperty("type")
             val type: String = "",
-            @SerialName("vendor_info")
+            @JsonProperty("vendor_info")
             val vendorInfo: VendorInfo = VendorInfo()
         ) {
-            @Serializable
             data class VendorInfo(
-                @SerialName("phone")
+                @JsonProperty("phone")
                 val phone: String = "",
-                @SerialName("vendor_email")
+                @JsonProperty("vendor_email")
                 val vendorEmail: String = "",
-                @SerialName("vendor_id")
+                @JsonProperty("vendor_id")
                 val vendorId: Int = 0,
-                @SerialName("vendor_logo")
+                @JsonProperty("vendor_logo")
                 val vendorLogo: String = "",
-                @SerialName("vendor_name")
+                @JsonProperty("vendor_name")
                 val vendorName: String = ""
             ){
                 fun toVendorInfo() =

@@ -40,6 +40,8 @@ ktor-client-android= { module = "io.ktor:ktor-client-android", version.ref = "kt
 ktor-client-okhttp= { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-negotiation= { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-serialization= { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-serialization-gson= { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
+ktor-client-serialization-jackson= { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 #chucker
 chucker-library = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
@@ -61,6 +63,8 @@ ktor = [
     "ktor-client-okhttp",
     "ktor-client-negotiation",
     "ktor-client-serialization",
+    "ktor-client-serialization-gson",
+    "ktor-client-serialization-jackson",
     "slf4j-android",
     "ktor-client-logging"
 ]

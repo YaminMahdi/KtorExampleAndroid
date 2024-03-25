@@ -10,7 +10,7 @@ import com.ktor.exp.data.dto.UserListDto
 import com.ktor.exp.domain.RequestState
 import com.ktor.exp.domain.model.User
 import com.ktor.exp.domain.model.UserBasicInfo
-import com.ktor.exp.dto.LoginDto
+import com.ktor.exp.data.dto.LoginDto
 import com.ktor.exp.utils.Constants
 import dagger.hilt.android.qualifiers.ApplicationContext
 import io.ktor.client.HttpClient
@@ -48,8 +48,8 @@ class MainRepoImpl @Inject constructor(
                     }
                 )
                 val body=  response.body<LoginDto>()
-                val data=  body.data?.toUser() ?: User()
-                Log.d("login", "login: $data")
+                Log.d("login", "login: $body")
+                val data=  body.data.toUser()
                 context.dataStore.edit {preferences->
                     preferences[stringPreferencesKey("token")] = data.token
                 }
@@ -81,7 +81,7 @@ class MainRepoImpl @Inject constructor(
                 }
                 val body=  response.body<UserListDto>()
                 Log.d("getUserList", "getUserList: $body")
-                val data=  body.data?.map{ it.toUserBasicInfo()} ?: emptyList()
+                val data=  body.data.map{ it.toUserBasicInfo()}
 
                 if(body.status == "success" && data.isNotEmpty())
                     RequestState.Success(data)

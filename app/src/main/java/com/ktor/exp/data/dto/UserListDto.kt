@@ -1,37 +1,34 @@
 package com.ktor.exp.data.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.ktor.exp.domain.model.UserBasicInfo
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class UserListDto(
-    @SerialName("current_page")
+    @JsonProperty("current_page")
     val currentPage: String = "",
-    @SerialName("data")
-    val data: List<Data>? = listOf(),
-    @SerialName("message")
+    @JsonProperty("data")
+    val data: List<Data> = listOf(),
+    @JsonProperty("message")
     val message: String = "",
-    @SerialName("number_of_pages")
+    @JsonProperty("number_of_pages")
     val numberOfPages: Int = 0,
-    @SerialName("pagination")
+    @JsonProperty("pagination")
     val pagination: List<Int> = listOf(),
-    @SerialName("status")
+    @JsonProperty("status")
     val status: String = "",
-    @SerialName("total_row")
+    @JsonProperty("total_row")
     val totalRow: Int = 0
 ) {
-    @Serializable
     data class Data(
-        @SerialName("name")
-        val name: String = "",
-        @SerialName("phone")
+        @JsonProperty("name")
+         val name: String = "",
+        @JsonProperty("phone")
         val phone: String = "",
-        @SerialName("transfer_type")
+        @JsonProperty("transfer_type")
         val transferType: String = "",
-        @SerialName("type")
+        @JsonProperty("type")
         val type: String = "",
-        @SerialName("vendor_name")
+        @JsonProperty("vendor_name")
         val vendorName: String = ""
     ){
         fun toUserBasicInfo() = UserBasicInfo(
